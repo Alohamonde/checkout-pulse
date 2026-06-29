@@ -1,0 +1,30 @@
+query CartInput {
+  cart {
+    lines {
+      id
+      quantity
+      cost {
+        amountPerQuantity {
+          amount
+        }
+      }
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          id
+        }
+      }
+      upsell: attribute(key: "_upsell_accepted") {
+        value
+      }
+    }
+  }
+  discount {
+    discountClasses
+  }
+  shop {
+    metafield(namespace: "$app:checkout_pulse", key: "config") {
+      jsonValue
+    }
+  }
+}

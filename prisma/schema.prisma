@@ -1,13 +1,7 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
-// Note that some adapters may set a maximum length for the String type by default, please ensure your strings are long
-// enough when changing adapters.
-// See https://www.prisma.io/docs/orm/reference/prisma-schema-reference#string for more information
 datasource db {
   provider = "sqlite"
   url      = "file:dev.sqlite"
@@ -31,4 +25,36 @@ model Session {
   emailVerified       Boolean?  @default(false)
   refreshToken        String?
   refreshTokenExpires DateTime?
+}
+
+model OfferRule {
+  id                    String   @id @default(cuid())
+  shop                  String
+  enabled               Boolean  @default(true)
+  triggerType           String   @default("product")
+  triggerProductId      String   @default("")
+  triggerProductTitle   String   @default("")
+  triggerCollectionId   String   @default("")
+  triggerCollectionTitle String  @default("")
+  minOrderAmount        Float    @default(0)
+  offerProductId        String
+  offerProductTitle     String
+  offerVariantId        String
+  discountPercent       Float    @default(10)
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  @@index([shop])
+}
+
+model OfferEvent {
+  id        String   @id @default(cuid())
+  shop      String
+  ruleId    String?
+  eventType String
+  orderId   String?
+  createdAt DateTime @default(now())
+
+  @@index([shop, eventType])
+  @@index([shop, ruleId])
 }

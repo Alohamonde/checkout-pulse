@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "checkout-pulse",
   "private": true,
   "scripts": {
     "build": "remix vite:build",
