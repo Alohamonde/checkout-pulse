@@ -1,5 +1,7 @@
 # Checkout Pulse
 
+> **产品迁移**：本模块已归入独立产品 [Conversion Pulse](https://github.com/Alohamonde/conversion-pulse)（`apps/checkout-pulse`）。本仓库保留作历史源码。
+
 购后追加销售 Shopify App：**感谢页 Offer**、**Discount Function 自动折扣**、**转化分析仪表盘**。基于 Remix + Checkout UI Extension + Shopify Functions，与 [Omni Store Toolkit](https://github.com/Alohamonde/omni-shopify-app)（购前店面）和 Gift Auto（购中赠品）形成差异化技术矩阵。
 
 ![Shopify](https://img.shields.io/badge/Shopify-App-7AB55C?logo=shopify&logoColor=white)
